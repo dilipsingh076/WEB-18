@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(70, 70, 237);
+            color: white;
+            font-size: 25px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div> <a href="masaiInvestor.html"> Backend </a></div>
+        <div> <a href="forntend.html"> Frondend</a></div>
+        
+    </div>
+    <form id="investor_form">
+    <input id="imageurl" type="text" placeholder="Enter image Url">
+    <input id = "name" type="text" placeholder="Enter Investor name">
+    <input id="role" type="text" placeholder="Enter Investor role">
+    <input id="companylogo" type="text" placeholder="Enter Company logo url">
+    <input type="submit">
+</form>
+    
+</body>
+</html>
+
+<script>
+    document.querySelector("#investor_form").addEventListener("submit",investorsfun);
+// we want to array of objects.
+
+// var array =JSON.parse(localStorage.getItem("investordata")) || [];
+var  array
+if(JSON.parse(localStorage.getItem("investordata"))==null){
+    array =[]
+}                                                               // instedd of if else we can use line number 40
+else{
+    array=JSON.parse(localStorage.getItem("investordata"))
+}
+        function investorsfun(){
+        event.preventDefault();
+
+        // shortcut to do this. = idofform.idofinput.value
+               
+        var investorobj={
+            investorimage :document.querySelector("#imageurl").value,
+            investorname : document.querySelector("#name").value,
+            investorrole : document.querySelector("#role").value,
+            investorcompanylogo : document.querySelector("#companylogo").value
+        };
+
+       array.push(investorobj)
+    //     console.log(array)
+    console.log(array)
+
+        localStorage.setItem("investordata",JSON.stringify(array));
+    }
+
+
+</script>

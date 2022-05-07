@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+
+    <style>
+        #container{
+            /* border: 1px solid red; */
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;       
+            grid-gap: 20px;
+           
+        }
+        /* #container>div{
+            border: 1px solid blue;
+            
+        } */
+        #avtarimg{
+            border: 1px solid pink;
+
+        }
+        p+img{
+            /* border: 1px dashed brown; */
+            width: 30%;
+            margin-left: 33%;
+     
+        }
+        #newbox{
+            /* border: 1px solid green; */
+            width: 90%;
+            margin-left: 5%;
+         
+        }
+        h3{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        
+     
+    </style>
+</head>
+<body>
+    <h1> FRONT-END</h1>
+    <div id="container"></div>
+    
+</body>
+</html>
+<script>
+    var investorobj = JSON.parse(localStorage.getItem("investordata"));
+    // console.log(investorobj);
+
+    investorobj.forEach(function(elem){
+    // console.log(elem)
+    
+    var box = document.createElement("div");
+    // setAttribute("id",avtarimg)
+    
+    
+    
+    var avtar = document.createElement("img");
+    avtar.setAttribute("src",elem.investorimage)
+    console.log(avtar)
+    avtar.setAttribute("id","newbox")
+    
+
+    var investorname = document.createElement("h3");
+    investorname.innerText = elem.investorname;
+   
+
+    var investorrole = document.createElement("p");
+    investorrole.innerText = elem.investorrole;
+
+    var investorcompany = document.createElement("img");
+    investorcompany.setAttribute("src",elem.investorcompanylogo)
+
+    document.querySelector("#container").append(box);
+  box.append(avtar,investorname,investorrole,investorcompany);
+
+})
+</script>

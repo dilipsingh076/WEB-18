@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>local storage, json, client - server model</h1>
+    <!-- 
+    <input type="text" id="name" placeholder="Name">
+    <button onclick="addname()">submit</button> -->
+
+</body>
+
+</html>
+
+<script>
+    //  Locla storage is a functonality provide by browser to sotre the data locally.
+    //  Local storeage has no expiry date. Clear it manually or delete the browser!
+    //  Local storage is the best way to store data if you don't have a database for you app yet.
+
+
+    //  &&&&&&&&&&&&&& HOW TO USE LOCAL STORAGE &&&&&&&&&&&&&&&&&&
+    //  There are three syntex to use local storage. these three type is used to add a string value in localstorage.
+
+    // 1. if we want to save something we have to use 
+
+    //     localStorage.setItem("keyname","value")
+
+    var vlaue = "swanad2"
+    //    localStorage.setItem("aman3",vlaue)
+    var dj = "dilip singh"
+    localStorage.setItem("dilip", dj);
+    localStorage.setItem("name", dj);
+    localStorage.setItem("name1", "ramanuj")
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 2. if we want to access that data to use use. it is retrive my data so first thing we have to store that data somewhere.
+    //  one major mistake that happen when we code is this in syntex.
+
+    // var mydata = localStorage.getItem("aman3");
+    // console.log("mydata",mydata)
+    // var cat = localStorage.getItem("mycat");
+
+
+
+
+
+    //  3. if we want to remove that item so we use 
+
+
+    localStorage.removeItem("keyname");
+    localStorage.removeItem("name1")
+
+
+
+
+
+    // 4. if we want to clear every thing form local storage like browser history and caches so we use 
+
+    // localStorage.clear();
+
+
+
+    // 5. if we want to add arrays or objects so we use these json.stingify.
+
+    var arr = [1, 2, 3, 4, 5]
+    localStorage.setItem("myarr", arr);     // it is not in array format so we can not use this to array
+    var mydata = localStorage.getItem("myarr")
+
+    var arr1 = { name: "dilip" };
+    localStorage.setItem("arrname", arr1);     // it is also not store by the help of the localstorage.setitem
+
+    document.body.append(arr1)
+
+
+
+
+    // JSON ====> It is a data format. javascript object Notation(JSON) is representation of structured data based on javascript object syntax.
+
+    // * data is sent and received on internet in json(mostly).
+    // * it is based on javascript object literals.
+    // * used with network requests(AJAX etc.)
+
+
+    //  Q1. why we use JSON
+    // ans. JSON is one of the most commonly used data formats to transmit data in web applications.
+
+    //  moreover,its not just javascript that supports json, many commonly used languages on the web including PHP, Phython, c/c++, java etc. also support Json.
+
+    // Thus, json can be used to send data from the front-end to the back-end, and vice-versa.
+
+    // many popular databass like MongoDB, couchDB, mySQL, oracle and postgreSQL also have extensive support for json.
+
+
+    // NOTE : think of json as an universal data fromat on the internet
+
+    //  Q2. what does json look like?
+    // ans. here the key is also enclose in the string but in object it is not but when we use json for object here the key is also enclose in the string.
+    // var playerdata = {
+    //     "name":"virat kohli",
+    //     "age": "30",
+    //     "teams":["india","RCB"],
+    //     "fav-player":{
+    //         "name":"sachin tendulkar",
+    //         "age":"40",
+    //         "teams": ["india","mi"]
+    //     }
+    // }
+
+    //  var obj = {
+    //      name : 'raj',
+    //      age: 35
+    //  }
+
+    //  var jsonObj ={
+    //      "name":"raj",
+    //      "age":"34"
+    //  }
+
+
+
+    //  &&&&&&&&&&&&&&&& IMPORTANT NOTES ABOUT JSON  &&&&&&&&&&&&&&&&&&&&&&&&&
+
+    //  1. it's just a data format and does not contain any function/methods.
+    // 2. even  single misplaced comma can damage the whole file.
+    // 3. only quoted strings can be used as properties.
+
+
+
+    //  we can convert jsonobj ---> js objects.
+
+    var obj = {
+        name: 'raj',
+        age: 35
+    }
+    localStorage.setItem("obj1",obj)
+    console.log("obj2:", obj);
+
+    var jsonobj = JSON.stringify(obj);
+    console.log("jsonobj1", jsonobj);
+  
+
+
+
+    // var loadVal = JSON.parse(localStorage.getItem("name"));
+    // localStorage.setItem("name",JSON.stringify(users))
+
+
+    // function addname(){
+    //     var friend = document.getElementById("name").value;
+    //     var p = document.createElement("p")
+    //     p.innerText = friend
+    //     document.body.append(p)
+
+    // }
+</script>
